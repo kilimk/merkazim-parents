@@ -56,3 +56,9 @@ The current live website uses Sites. Pushing to this GitHub repository does not 
 Contributors can fork and submit pull requests. Direct write access requires the repository owner to add them as collaborators. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 This repository has no open-source license. Supplied content, fonts and documents retain their respective rights.
+
+## Social previews and initial loading
+
+The build emits page-specific titles, descriptions, Open Graph and Twitter metadata, plus a shared 1200×630 social image. Before moving domains, build with `SITE_URL=https://parents.svoimgolosom.co.il npm run build`. Metadata is present in built HTML; client-side development serves the source template.
+
+Built route pages include their complete source sections without JavaScript. Interactive forms, search and the glossary book still require JavaScript. Glossary, ecosystem and contact JSON are loaded when needed; content and coordinators remain initial dependencies. See [LAUNCH_AUDIT.md](LAUNCH_AUDIT.md) for remaining launch decisions.
