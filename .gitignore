@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+dist/
+feedback-site/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.pyc
+.codex/
+.agents/
+# Original client briefs, design packages and internal planning stay local.
+/Design/
+/Content/*.docx
+/*.docx
+/PROJECT_DECISIONS.md
