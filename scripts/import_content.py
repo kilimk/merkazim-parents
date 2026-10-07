@@ -27,7 +27,7 @@ class Element:
         attrs = {}
         for k,v in self.attrs.items():
             if k in ('class','id','dir','lang','href','title','open'):
-                if k == 'href' and not re.match(r'^(https?://|mailto:|tel:|#)',v): continue
+                if k == 'href' and not re.match(r'^(https?://|mailto:|tel:|#|/(?:ru|he)/)',v): continue
                 attrs[k] = v or ''
         if self.tag == 'a' and attrs.get('href','').startswith('http'):
             attrs.update(target='_blank', rel='noopener noreferrer')
@@ -98,8 +98,5 @@ if args.petition:
     petition=[p for p in petition if p.strip()]
 else:
     petition=json.loads((OUT/'content.json').read_text())['petition']
-# Approved statistics update supplied on 2026-10-04.
-petition[4]='По данным РАМА, в 2024/25 учебном году 19% учеников сообщили, что часто сталкиваются хотя бы с одним видом насилия. В начальных школах с преподаванием на иврите — 28%, физическое насилие там отдельно составляет 12%. В опросе участвовали 207 158 учеников 5–11 классов.'
-petition[6]='В 2025 году служба 105 обработала 16 292 инцидента в цифровом пространстве — на 71% больше, чем годом ранее.'
 (OUT/'content.json').write_text(json.dumps({'routes':routes,'petition':petition},ensure_ascii=False,indent=2))
 print(f'Imported {len(routes)} complete routes, {sum(len(r["sections"]) for r in routes)} sections and {len(petition)} petition paragraphs.')

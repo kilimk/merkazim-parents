@@ -24,6 +24,7 @@ npm run build
 ## Project layout
 
 - `site/app.js` — routing, main pages, forms, RU/HE interface
+- `site/route-navigation.js` — active route contents, template anchors and return to reading
 - `site/features.js` — ecosystem map, coordinators, local chat and petition banner
 - `site/directories.js` — glossary search and service directory
 - `site/data/` — routes, petition, six ecosystem structures, coordinators, 85 services and a 44-page glossary search index
@@ -45,7 +46,7 @@ Includes ten guidance routes, petition, feedback, city coordinators, education s
 
 The interface supports RU/HE and RTL. Detailed guidance and source documents remain in Russian where full Hebrew translations are not ready.
 
-**Forms do not send or store data.** The signature counter is a labeled demonstration. Chat matches existing materials locally and does not call a generative AI service. The review site intentionally disables indexing.
+**Forms do not send or store data.** The petition shows a goal of 2,000 signatures and states that collection has not opened. Chat matches existing materials locally and does not call a generative AI service. The review site intentionally disables indexing.
 
 Before a full launch: connect the hosting/backend, implement validated form storage and email notifications, real signature counting and duplicate prevention, complete translations, approve the privacy notice, and review contact information.
 
