@@ -44,7 +44,7 @@ Original client briefs, design packages, internal planning and the separate `fee
 
 Includes ten guidance routes, petition, feedback, city coordinators, education system map, searchable glossary with original PDF download, and searchable service directory. Glossary search indexes OCR text and displays the original page; some spellings may be missed by recognition.
 
-The interface supports RU/HE and RTL. Detailed guidance and source documents remain in Russian where full Hebrew translations are not ready.
+The site supports RU/HE/UK, with RTL for Hebrew. Ukrainian has complete interface, route, petition, directory, ecosystem and glossary translations at `/uk/`. Hebrew detailed guidance still uses Russian source material where full translations are not ready. Hebrew letter templates remain in Hebrew so parents can send them to Israeli institutions. Original third-party videos and official source reports retain their original language.
 
 **Forms do not send or store data.** The petition shows a goal of 2,000 signatures and states that collection has not opened. Chat matches existing materials locally and does not call a generative AI service. The review site intentionally disables indexing.
 
@@ -63,3 +63,9 @@ This repository has no open-source license. Supplied content, fonts and document
 The build emits page-specific titles, descriptions, Open Graph and Twitter metadata, plus a shared 1200×630 social image. Before moving domains, build with `SITE_URL=https://parents.svoimgolosom.co.il npm run build`. Metadata is present in built HTML; client-side development serves the source template.
 
 Built route pages include their complete source sections without JavaScript. Interactive forms, search and the glossary book still require JavaScript. Glossary, ecosystem and contact JSON are loaded when needed; content and coordinators remain initial dependencies. See [LAUNCH_AUDIT.md](LAUNCH_AUDIT.md) for remaining launch decisions.
+
+## Ukrainian content maintenance
+
+Translations live in `site/data/uk/`. Update route translations in `content.json` alongside approved Russian source changes; importing Russian content does not update Ukrainian automatically. `ui.json` maps interface text. Search uses Ukrainian text and original Hebrew terms.
+
+Rebuild the translated 44-page book with `python3 scripts/build-uk-book.py` (ReportLab, python-bidi, Pillow and Poppler required; use `NAVIGATOR_FONT` and `NAVIGATOR_BOLD_FONT` to override Arial paths on other platforms). It produces `site/assets/navigator-uk.pdf`, 44 WebP pages and the Ukrainian social preview. Run `npm run check`, `npm run build`, and `node scripts/check-uk.mjs` before publishing. The check compares route IDs, section counts, Hebrew templates, numbers and URLs and checks localized assets and metadata.

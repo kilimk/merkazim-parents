@@ -11,7 +11,7 @@ function bindRouteNavigation(){
  const layout=document.querySelector('.article-layout');if(!layout)return;
  const sections=[...layout.querySelectorAll('.article-body > section[id]')];
  const links=[...layout.querySelectorAll('.toc a[href^="#"]')];
- const back=document.createElement('button');back.className='route-return btn secondary';back.type='button';back.hidden=true;back.textContent='← Вернуться к месту чтения';layout.append(back);
+ const back=document.createElement('button');back.className='route-return btn secondary';back.type='button';back.hidden=true;back.textContent=tr('← Вернуться к месту чтения','← חזרה למקום הקריאה');layout.append(back);
  let frame=0,origin=null,active=null;
  function update(){
   frame=0;const boundary=(document.querySelector('.topbar')?.getBoundingClientRect().bottom||0)+45;
